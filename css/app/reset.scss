@@ -1,0 +1,31 @@
+
+.my-modal, .__modal {
+    z-index: 1000;
+}
+
+.ngdialog {
+    z-index: 1000;
+}
+
+.message-container {
+    z-index: 1001;
+}
+
+.form-control {
+    border-radius: 4px;
+    box-shadow: none;
+    &:focus {
+        border-color: #00a854;
+        box-shadow: none;
+    }
+}
+
+input {
+    &:focus {
+        border: 1px solid #00a854;
+    }
+}
+
+.ant-calendar-picker:hover .ant-calendar-picker-input {
+    border-color: #00a854;
+}

@@ -1,0 +1,132 @@
+@import "smart-analytic-system";
+@import "console-account-manage";
+@import "authority-role-manage";
+@import "patient-record-info";
+
+.app-function-page {
+    .toolbar {
+        margin: 15px;
+        button {
+            margin-left: 10px;
+        }
+    }
+
+    .search-container {
+        float: right;
+        font-size: 12px;
+        input {
+            border: 1px solid #aaa;
+            border-radius: 4px;
+            padding: 5px 10px;
+            width: 180px;
+        }
+        button {
+            border: 1px solid #aaa;
+            border-radius: 4px;
+            padding: 5px 10px;
+        }
+    }
+}
+
+.label-for-input {
+    display: inline-block;
+    vertical-align: middle;
+    width: 100px;
+}
+
+.input-wrap {
+    display: inline-block;
+    width: 200px;
+}
+
+.edit-remark-icon {
+    margin-left: 3px;
+}
+
+.load-more-text {
+    color: #259;
+    margin-left: 4px;
+}
+
+.select-start-end-day {
+    width: 300px;
+    margin: 20px;
+
+    label {
+        display: inline-block;
+        width: 100px;
+    }
+    .date-picker-container {
+        display: inline-block;
+        width: 200px;
+    }
+
+    .w100 {
+        width: 100%;
+        padding: 4px 5px;
+        border-radius: 4px;
+        border: 1px solid #aaa
+    }
+}
+
+.online-doctor-statistics {
+    .my-start, .my-end {
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        height: 25px;
+        padding: 2px 8px;
+        width: 100%;
+        &:focus {
+            border: 1px solid green;
+        }
+    }
+    .start-to-end {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+}
+
+.history-message-statistics {
+    .tab-content, .tab-pane.active {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+    .nav-tabs {
+        margin-left: 10px;
+    }
+
+    .emotion {
+        width: 20px;
+    }
+}
+
+.description {
+    color: #98a6ad;
+}
+
+.statistics-info {
+    padding: 10px;
+}
+
+.time-forenoon, .time-afternoon, .forenoon, .afternoon {
+    height: 50%;
+    line-height: 1.8;
+    background: #fff;
+    text-align: center;
+}
+
+.click-to-look {
+    padding: 4px 0 2px;
+    color: #428bca;
+    cursor: pointer;
+    border-bottom: 1px solid #428bca;
+}
+
+.noBabyStyle {
+    border-color: #66afe9;
+    outline: 0;
+    float: right;
+}

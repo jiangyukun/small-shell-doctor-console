@@ -1,0 +1,23 @@
+
+.record-type-detail-info {
+    display: flex;
+    margin-top: 15px;
+    border-top: 1px solid #e5e5e5;
+    padding-top: 15px;
+}
+
+.record-info-check-area {
+    width: 150px;
+    padding-left: 30px;
+    border-left: 1px solid #e5e5d5;
+
+    .btn {
+        width: 100px;
+    }
+}
+
+.record-info-header {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}

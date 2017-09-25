@@ -1,0 +1,85 @@
+@mixin svg-nav-icon() {
+    float: left;
+    width: 16px;
+    height: 16px;
+    margin-top: 12px;
+    margin-right: 5px;
+    background-size: cover;
+    vertical-align: bottom;
+}
+
+@mixin svg-bg-icon() {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background-size: cover;
+    vertical-align: sub;
+}
+
+/*.analytic-system-svg-icon {
+    background-image: url(../../img/svg/analytic.svg);
+    @include svg-nav-icon();
+}*/
+
+.patient-manage {
+    background-image: url(../../img/svg/patient.svg);
+    @include svg-nav-icon();
+}
+
+.statistics-svg-icon {
+    background-image: url(../../img/svg/statistics.svg);
+    @include svg-nav-icon();
+}
+
+.system-manage-svg-icon {
+    background-image: url(../../img/svg/system-manage.svg);
+    @include svg-nav-icon();
+}
+
+.app-svg-icon {
+    background-image: url(../../img/svg/app.svg);
+    @include svg-nav-icon();
+}
+
+.doctor-svg-icon {
+    background-image: url(../../img/svg/doctor.svg);
+    @include svg-nav-icon();
+}
+
+.chat-svg-icon {
+    background-image: url(../../img/svg/chat.svg);
+    @include svg-nav-icon();
+}
+
+.console-svg-icon {
+    background-image: url(../../img/svg/console.svg);
+    @include svg-nav-icon();
+    margin-top: 14px;
+    width: 20px;
+    height: 20px;
+}
+
+.plus-svg-icon {
+    background-image: url(../../img/svg/plus.svg);
+    @include svg-bg-icon();
+}
+
+.minus-svg-icon {
+    background-image: url(../../img/svg/minus.svg);
+    @include svg-bg-icon();
+}
+
+.close-svg-icon {
+    background-image: url(../../img/svg/close.svg);
+    @include svg-bg-icon();
+}
+
+.edit-remark-svg {
+    display: inline-block;
+    margin-left: 3px;
+    cursor: pointer;
+    width: 12px;
+    height: 12px;
+    background: url(../../img/svg/edit.svg);
+    background-size: cover;
+}
