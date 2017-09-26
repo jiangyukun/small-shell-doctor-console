@@ -53,7 +53,7 @@ class DoctorBackend extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (!this.props.updateFamilyPhoneSuccess && nextProps.updateFamilyPhoneSuccess) {
-      this.beginFetch(this.state.currentIndex)
+      this.beginFetch()
       this.props.clearState(DOCTOR_BACKEND.UPDATE_FAMILY_PHONE)
     }
   }
