@@ -15,6 +15,8 @@ import configureStore from '../store/configureStore'
 
 import './import-style'
 import {context} from '../core/env'
+import {_get} from '../services/http'
+import {APP} from '../constants/types'
 
 let path
 switch (process.env.NODE_ENV) {
@@ -34,6 +36,16 @@ switch (process.env.NODE_ENV) {
 
 let store = configureStore()
 let browserHistory = syncHistoryWithStore(useRouterHistory(createBrowserHistory)({basename: path}), store)
+
+_get('/backend/user/getBackendUserInfo').then(data => {
+  store.dispatch({
+    type: APP.INIT_ACCOUNT,
+    account: {
+      id: data['doctor_user_id'],
+      name: data['doctor_name']
+    }
+  })
+})
 
 render(
   <Root pageList={[]} store={store} history={browserHistory}/>,

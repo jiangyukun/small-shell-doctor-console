@@ -7,46 +7,28 @@ import Dropdown from 'react-bootstrap/lib/Dropdown'
 import MenuItem from 'react-bootstrap/lib/MenuItem'
 import moment from 'moment'
 
-import ChangePassword from './ChangePassword'
-
-import * as antdUtil from '../core/utils/antdUtil'
-import {toggleAside, toggleMessagePanel} from '../actions/header'
-import {logout, changePassword, clearPasswordUpdateSuccess} from '../actions/app'
+import {logout} from '../actions/app'
+import {context} from '../core/env'
 
 const CustomWrap = (props) => <li {...props}>{props.children}</li>
 
 class Header extends Component {
-  state = {
-    showChangePassword: false
-  }
-
-  toggleMessagePanel() {
-    this.props.toggleMessagePanel()
-  }
+  state = {}
 
   logout = () => {
-    let loginUrl = 'platform/access/login.html'
-    //开发跳转路径
+    let loginUrl = context + '/login'
     if (location.href.indexOf('inline') != -1) {
-      loginUrl = 'platform/inline/login'
+      loginUrl = context + '/inline/login'
     }
     this.props.logout()
     location.href = loginUrl
   }
 
   componentDidMount() {
-    // 每30m 刷新当前时间显示
+    // 每 1s 刷新当前时间显示
     this.taskId = setInterval(() => {
       this.forceUpdate()
-    }, 30000)
-  }
-
-  componentDidUpdate() {
-    if (this.props.passwordUpdateSuccess) {
-      this.props.clearPasswordUpdateSuccess()
-      antdUtil.tipSuccess('密码修改成功！')
-      setTimeout(() => this.logout(), 1000)
-    }
+    }, 60000)
   }
 
   componentWillUnmount() {
@@ -76,46 +58,22 @@ class Header extends Component {
       dayPhase = '晚上'
     }
 
-    const {userId, username} = this.props.app
+    const {name} = this.props.account
     return (
       <div className="app-header navbar">
-        {
-          this.state.showChangePassword && (
-            <ChangePassword
-              changePassword={this.props.changePassword}
-              passwordUpdateSuccess={this.props.passwordUpdateSuccess}
-              onExited={() => this.setState({showChangePassword: false})}/>
-          )
-        }
         <div className="navbar-header">
           <a href="/" className="navbar-brand">
             <i className="console-svg-icon"></i>
             <span className="console-name">{this.props.app.name}</span>
           </a>
         </div>
-
         <div className="collapse pos-rlt navbar-collapse box-shadow bg-white-only">
           <ul className="nav navbar-nav navbar-right">
-            {
-              this.props.isCanEdit && (
-                <li>
-                  <a onClick={e => this.toggleMessagePanel()}>
-                    <span className="">消息通知</span>
-                    <i className="icon-bell fa-fw"></i>
-                    <span className="message-count">{this.props.message.unreadTotal || ''}</span>
-                  </a>
-                </li>
-              )
-            }
             <Dropdown id="dropdown-system-menu" componentClass={CustomWrap}>
               <Dropdown.Toggle useAnchor={true}>
-                <span className="hidden-sm hidden-md">{(username || userId) + `，${dayPhase}好`}</span>
+                <span className="hidden-sm hidden-md">{`${name}，${dayPhase}好`}</span>
               </Dropdown.Toggle>
               <Dropdown.Menu className="dropdown-menu animated fadeInRight w">
-                <MenuItem onClick={() => this.setState({showChangePassword: true})}>
-                  修改密码
-                </MenuItem>
-                <MenuItem divider/>
                 <MenuItem onClick={this.logout}>
                   重新登录
                 </MenuItem>
@@ -128,19 +86,13 @@ class Header extends Component {
   }
 }
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
     app: state.app,
-    passwordUpdateSuccess: state.app.passwordUpdateSuccess,
-    message: state.message,
-    isCanEdit: ownProps.isCanEdit
+    account: state.app.account
   }
 }
 
 export default connect(mapStateToProps, {
-  toggleAside,
-  toggleMessagePanel,
-  logout,
-  changePassword,
-  clearPasswordUpdateSuccess
+  logout
 })(Header)

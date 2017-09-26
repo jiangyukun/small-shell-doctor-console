@@ -10,7 +10,7 @@ class Aside extends Component {
       <div className="app-aside bg-black">
         <div className="aside-wrap">
           <div className="navi-wrap">
-            <Nav pageList={this.props.pageList}/>
+            <Nav/>
           </div>
         </div>
       </div>
@@ -19,7 +19,7 @@ class Aside extends Component {
 }
 
 Aside.propTypes = {
-  pageList: PropTypes.array
+
 }
 
 export default Aside

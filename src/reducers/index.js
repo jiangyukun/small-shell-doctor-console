@@ -8,14 +8,9 @@ import systemMessage from 'app-core/message/message.reducer'
 
 import data from './common/data.reducer'
 
-import * as app from './_app'
-import * as hospitalList from './_hospital'
-import * as provinceList from './province_list'
-import * as cityMapper from './city_mapper'
-import * as positionList from './position_list'
-import * as departmentList from './department_list'
-
+import app from './app'
 import doctorBackend from '../containers/doctor-backend/doctor-backend.reducer'
+
 import {DOCTOR_BACKEND} from '../constants/types'
 
 /**
@@ -37,16 +32,10 @@ function unwrapReducerState(state, iState, nextIState) {
 
 export default combineReducers({
   systemMessage: wrapReducerState(systemMessage),
-  ...app,
+  app: wrapReducerState(app),
 
   patientList: wrapReducerState(data(DOCTOR_BACKEND.FETCH_LIST)),
-
-  ...hospitalList,
-
-  ...provinceList,
-  ...cityMapper,
-  ...positionList,
-  ...departmentList,
+  doctorBackend: wrapReducerState(doctorBackend),
 
   routing
 })

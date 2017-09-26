@@ -4,6 +4,7 @@
 import {fromJS} from 'immutable'
 
 import constants from './constants'
+import {context} from './env'
 
 /**
  * 获取FilterItem的item参数对象
@@ -46,7 +47,7 @@ export function urlParam(paramObj) {
         } else {
           prefix = '&'
         }
-        paramUrl += prefix + param + '=' + paramObj[param];
+        paramUrl += prefix + param + '=' + paramObj[param]
       }
     }
   }
@@ -166,14 +167,14 @@ export function getPath(page) {
   let path = ''
   let prefix = ''
   if (process.env.NODE_ENV == 'production') {
-    prefix = 'platform/'
+    prefix = context
   }
   if (process.env.NODE_ENV == 'inline') {
-    prefix = 'platform/'
-    path = 'inline/'
+    prefix = ''
+    path = '/inline/'
   }
   if (process.env.NODE_ENV == 'dev') {
-    path = 'dev/'
+    path = ''
   }
 
   return prefix + path + page
@@ -222,6 +223,7 @@ export function getMatchTextList(str, part) {
  * @type {number}
  */
 let uid = 1
+
 export function getUUID() {
   return uid++
 }

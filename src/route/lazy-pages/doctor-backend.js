@@ -8,6 +8,6 @@ export default function getRoute() {
     require.ensure([], (require) => {
       const Component = require('../../containers/doctor-backend/DoctorBackend').default
       cb(null, pageWrapper(Component))
-    })
+    }, 'doctor-backend')
   }
 }

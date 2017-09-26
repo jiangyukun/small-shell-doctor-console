@@ -8,7 +8,7 @@ import getPageRoute from './getPageRoute'
 
 export default function getRoute(pageList) {
   return (
-    <Route path="platform">
+    <Route path="">
       {getPageRoute('', pageList)}
     </Route>
   )

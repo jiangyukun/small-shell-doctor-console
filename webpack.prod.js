@@ -6,15 +6,16 @@ const handleModulePath = require('./tools/handleModulePath')
 
 process.env.NODE_ENV = 'production'
 
+const context = '/shell-doctor-web'
+
 module.exports = {
   entry: [
     './src/boot/index.js'
   ],
   output: {
-    // path: 'D:/2017/company/app-parent/backed-web/src/main/webapp/platform-new/build/',
     path: __dirname + '/build/prod/',
     filename: 'bundle' + '.min.js',
-    publicPath: '/backend/platform-new/build/',
+    publicPath: context + '/home/build/prod/',
     chunkFilename: '[name].chunk.js?v=' + moment().format('YYYY-MM-DD')
   },
   resolve: {

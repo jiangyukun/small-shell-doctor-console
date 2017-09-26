@@ -30,7 +30,6 @@ const vendors = [
   'lodash',
   'moment',
   'react',
-  'react-addons-css-transition-group',
   'react-bootstrap/lib/Dropdown',
   'react-bootstrap/lib/MenuItem',
   'react-bootstrap/lib/Tabs',
