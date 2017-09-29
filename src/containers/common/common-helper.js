@@ -16,7 +16,6 @@ export function v_t(value, text) {
   }
 }
 
-
 export function handleFlagState(iState, action, type, key) {
   if (action.type == phase.CLEAR + type) {
     return iState.set(key, false)
@@ -25,4 +24,13 @@ export function handleFlagState(iState, action, type, key) {
     return iState.set(key, true)
   }
   return iState
+}
+
+export function initArray(arr) {
+  if (!arr) return []
+  return arr
+}
+
+export function isEmpty(str) {
+  return (str == null || str == '')
 }
